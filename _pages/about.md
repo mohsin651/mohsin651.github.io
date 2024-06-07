@@ -18,6 +18,6 @@ social: true # includes social icons at the bottom of the page
 
 Hi! I am Mohsin, a 2023 graduate from the <code>University of Delhi</code> with a B.Sc. (Hons) in Computer Science. I have previously worked in the domains of Machine Learning and Blockchain research. 
 
-Previously, I was partly associated with <code>UrbanLyfe</code> in their ML team for finding solutions for improving logistics using analytics and chatbot development. Prior to that, I worked as an intern at multiple Indian institutions, startups, labs broadly in the domain of Artificial Intelligence and Blockchain.
+Previously, I was partly associated with [UrbanLyfe](https://www.urbanlyfe.in/) in their ML team for researching logistics optimization using ML and chatbot development. Prior to that, I worked as an intern at multiple Indian institutions, startups, and labs broadly in the domain of Artificial Intelligence and Blockchain, including [DRDO](https://www.drdo.gov.in/drdo/labs-and-establishments/institute-systems-studies-analyses-issa), [SS Cocina](), [NIT Srinagar](https://www.nitsri.ac.in/), [University of Cincinnati](https://www.uc.edu/), [Omdena](https://www.omdena.com/), and a few others.
 
-For now, I have focused my research interests on <code>Natural Language Processing</code>, <code>Human-Computer Interaction</code>, and <code>Computational Analytics</code>.
+For now, I have focused my research interests on <code>Natural Language Processing</code>, <code>Human-Computer Interaction</code>,  <code>Computational Analytics</code>, <code>Smart Cities</code>, and <code>Sustainable Infrastructure</code>.
