@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Exploring the Future of <code><u>Human Interaction</u></code> with <code><u>Technology</u></code> Driven via <code><u>Language & Analytics Research</u></code> :P
+# subtitle: Exploring the Future of <code><u>Human Interaction</u></code> with <code><u>Technology</u></code> Driven via <code><u>Language & Analytics Research</u></code> :P
 
 # profile:
 #   align: right
