@@ -4,6 +4,8 @@
 
 // Typography
 
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
 p,
 h1,
 h2,
@@ -11,12 +13,12 @@ h3,
 h4,
 h5,
 h6,
-em,
 div,
 li,
-span,
-strong {
+span {
   color: var(--global-text-color);
+  font-family: 'Lora'; /* Set the font-family to Lora */
+  font-weight: 400;
 }
 
 hr {
