@@ -4,7 +4,7 @@
 
 // Typography
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+/* No need to import Trebuchet MS as it is a web-safe font and available on most systems */
 
 p,
 h1,
@@ -17,9 +17,10 @@ div,
 li,
 span {
   color: var(--global-text-color);
-  font-family: 'Lora'; /* Set the font-family to Lora */
+  font-family: 'Trebuchet MS', sans-serif; /* Set the font-family to Trebuchet MS */
   font-weight: 100;
 }
+
 
 hr {
   border-top: 1px solid var(--global-divider-color);

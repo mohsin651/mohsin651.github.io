@@ -20,4 +20,4 @@ Hi! I am Mohsin, a 2023 graduate from the <code>University of Delhi</code> with 
 
 Previously, I was partly associated with [UrbanLyfe](https://www.urbanlyfe.in/) in their ML team for researching logistics optimization using ML and chatbot development. Prior to that, I worked as an intern at multiple Indian institutions, startups, and labs broadly in the domain of Artificial Intelligence and Blockchain, including [DRDO](https://www.drdo.gov.in/drdo/labs-and-establishments/institute-systems-studies-analyses-issa), [SS Cocina](), [NIT Srinagar](https://www.nitsri.ac.in/), [University of Cincinnati](https://www.uc.edu/), [Omdena](https://www.omdena.com/), and a few others.
 
-For now, I have focused my research interests on <code>Natural Language Processing</code>, <code>Human-Computer Interaction</code>,  <code>Computational Analytics</code>, <code>Smart Cities</code>, and <code>Sustainable Infrastructure</code>.
+For now, I have focused my research interests on <code>Natural Language Processing</code>, <code>Human-Computer Interaction</code>, <code>Computational Analytics</code>, <code>Smart Cities</code>, and <code>Sustainable Infrastructure</code>.
