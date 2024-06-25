@@ -4,6 +4,7 @@
 
 // Typography
 
+/* Import Lora font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
 
 p,
@@ -18,8 +19,9 @@ li,
 span {
   color: var(--global-text-color);
   font-family: 'Lora', serif; /* Set the font-family to Lora */
-  font-weight: 100;
+  font-weight: 400; /* Set default font-weight to 400 for regular text */
 }
+
 
 
 hr {
