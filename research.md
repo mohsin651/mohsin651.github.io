@@ -7,11 +7,11 @@ permalink: /research/
 - **DAMM**: Dynamic Modality Agnostic Weighted Embeddings Fusion for Multimodal Meme Detection  
   **Authors:** <ins>Mohsin Imam</ins>, Utathya Aich, Ram Sarkar  
   **Venue:** *Elsevier*, 2024 (Under Preparation)  
-  [[PDF](https://yourwebsite.com/papers/LLM-Paper.pdf)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](#)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract:</strong>  
-    Past few years have witnessed tremendous progress in artificial intelligence (AI) technologies including but not limited to natural language processing (NLP), metaverse, and generative models. These changes mark a new era with large language models (LLMs) like generative pre-trained transformers such as the GPT-3, GPT-4, and Llama2 gaining importance. These models, trained on vast text data, generate human-like text and find use in content creation, Q & A systems, and chatbots. Machine learning advances enable models like ChatGPT to respond to real-time text prompts. However, they are vulnerable to attacks, leading to inaccurate or harmful content. Adversarial prompting addresses these issues, including input manipulation, creating inducive prompts which causes LLMs to produce illegal content, simulating violence and harm, privacy breaches and other illegitimate actions. LLMs are especially prone to text attacks, with minor changes resulting in different outputs. Researchers are improving model security through adversarial training. To enhance the security of LLMs and prevent them from responding to adversarial prompts, we aim to utilize machine learning, deep learning and transformer models as external prompt classifiers for LLM-based applications like ChatGPT, to detect and counter malicious prompts that may lead to inappropriate responses from LLMs. We have conducted analyses on multiple machine learning, deep learning, and Transformer-based models, incorporating techniques such as ensembling and attention mechanisms. These models are trained on word-level text classification to categorize prompts into the adversarial category, preventing them from being answered by LLMs. We compared our results with those of other ML and DL models, and our proposed ensemble of the BERT-DistilBERT model achieved the best outcome with 97.56% accuracy in identifying malicious/adversarial prompts.
+    Coming Soon!
   </div>
 
   
@@ -19,37 +19,37 @@ permalink: /research/
 - **Applications of Multimodal Deep Learning in Medicine**  
   **Authors:** Pankaj Rajdeo, ..., <ins>Mohsin Imam</ins>, VB Surya Prasath  
   **Venue:** *Springer Handbook (SHB) on Medical Biotechnology*, 2024 (Under Review)  
-  [[Link](#)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](#)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract:</strong>  
-    <!-- Abstract for the second paper -->
+    Coming Soon!
   </div>
 
 - **On Utilizing Deep Learning Models for Preventing Harmful Response in LLMs**  
-  **Authors:** <ins>Mohsin Imam</ins>, Salehah Hamzah, Shalini Aggarwal, Soumyabrata Dev, V.B Surya Prasath  
+  **Authors:** <ins>Mohsin Imam</ins>, Salehah Hamzah, Shalini Aggarwal, Soumyabrata Dev, V.B Surya Prasath   
   **Venue:** *Neural Networks, Elsevier*, 2024 (Under Review)  
-  [[Link](#)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[pdf](/papers/LLM-Paper.pdf)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract:</strong>  
-    <!-- Abstract for the third paper -->
+    Past few years have witnessed tremendous progress in artificial intelligence (AI) technologies including but not limited to natural language processing (NLP), metaverse, and generative models. These changes mark a new era with large language models (LLMs) like generative pre-trained transformers such as the GPT-3, GPT-4, and Llama2 gaining importance. These models, trained on vast text data, generate human-like text and find use in content creation, Q & A systems, and chatbots. Machine learning advances enable models like ChatGPT to respond to real-time text prompts. However, they are vulnerable to attacks, leading to inaccurate or harmful content. Adversarial prompting addresses these issues, including input manipulation, creating inducive prompts which causes LLMs to produce illegal content, simulating violence and harm, privacy breaches and other illegitimate actions. LLMs are especially prone to text attacks, with minor changes resulting in different outputs. Researchers are improving model security through adversarial training. To enhance the security of LLMs and prevent them from responding to adversarial prompts, we aim to utilize machine learning, deep learning and transformer models as external prompt classifiers for LLM-based applications like ChatGPT, to detect and counter malicious prompts that may lead to inappropriate responses from LLMs. We have conducted analyses on multiple machine learning, deep learning, and Transformer-based models, incorporating techniques such as ensembling and attention mechanisms. These models are trained on word-level text classification to categorize prompts into the adversarial category, preventing them from being answered by LLMs. We compared our results with those of other ML and DL models, and our proposed ensemble of the BERT-DistilBERT model achieved the best outcome with 97.56% accuracy in identifying malicious/adversarial prompts.
   </div>
 
 - **Enhancing BERT-Based Models for Detecting Race, Violence, and Hate Speech in Low-Resource Settings**  
   **Authors:** Salehah Hamzah, <ins>Mohsin Imam</ins>, Masnizah Mohammad  
   **Venue:** *Journal Name*, 2024 (Under Review)  
-  [[Link](#)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](#)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract:</strong>  
-    <!-- Abstract for the fourth paper -->
+    Coming Soon!
   </div>
 
 - **An Ensemble Method for Categorizing Cardiovascular Disease**  
   **Authors:** <ins>Mohsin Imam</ins>, Sufiyan Adam, Neetu Agarwal, Suyash Kumar, Anjana Gosain 
   **Venue:** *International Conference on Advances in IoT and Security with AI*, 2023  
-  [[Link](https://link.springer.com/chapter/10.1007/978-981-99-5088-1_24)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](https://link.springer.com/chapter/10.1007/978-981-99-5088-1_24)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract:</strong>  
@@ -59,7 +59,7 @@ permalink: /research/
 - **Study of Student Personality Trait on Spear-Phishing Susceptibility Behaviour**  
   **Authors:** Mohamad Alhaddad, Masnizah Mohd, Faizan Qamar, <ins>Mohsin Imam</ins>  
   **Venue:** *International Journal of Advanced Computer Science and Applications (IJACSA)*, 14(5), 2023  
-  [[Link](https://thesai.org/Publications/ViewPaper?Volume=14&Issue=5&Code=IJACSA&SerialNo=71)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](https://thesai.org/Publications/ViewPaper?Volume=14&Issue=5&Code=IJACSA&SerialNo=71)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract:</strong>  
@@ -69,7 +69,7 @@ permalink: /research/
 - **Review on Applications and Security of Blockchain**  
   **Authors:** <ins>Mohsin Imam</ins>, Kavita Saini  
   **Venue:** *Book Chapter: Blockchain and EHR, Nova Science Publisher*, 2023  
-  [[Link](https://novapublishers.com/shop/blockchain-and-ehr/)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](https://novapublishers.com/shop/blockchain-and-ehr/)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract:</strong>  
@@ -79,7 +79,7 @@ permalink: /research/
 - **Adversarial Learning of Security Risk in Cobots Driven Industry**  
   **Authors:** <ins>Mohsin Imam</ins>, Mohd Anas Wajid, Aasim Zafar, Mohammad Saif Wajid, Neeraj Baishwar, Sameer Awasthi  
   **Venue:** *Book chapter: Intersection of Machine Learning and Computational Social Sciences, CRC Press*, 2024 (Accepted)  
-  [[Link](#)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](#)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract:</strong>  
@@ -89,7 +89,7 @@ permalink: /research/
 - **Cyber Threat Analysis and Mitigation in Emerging Information Technology (IT) Trends**  
   **Authors:** <ins>Mohsin Imam</ins>, Mohd Anas Wajid, Bharat Bhushan, Alaa Ali Hameed, Akhtar Jamil
   **Venue:** *International Conference on Emerging Trends and Applications in Artificial Intelligence*, 2023  
-  [[Link](https://www.springerprofessional.de/en/cyber-threat-analysis-and-mitigation-in-emerging-information-tec/27041128)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](https://www.springerprofessional.de/en/cyber-threat-analysis-and-mitigation-in-emerging-information-tec/27041128)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract: </strong>  
@@ -99,7 +99,7 @@ permalink: /research/
 - **Parametric Optimization and Comparative Study of Machine Learning and Deep Learning Algorithms for Breast Cancer Diagnosis**  
   **Authors:** Parul Jain, Shalini Gupta, Sufiyan Adam, <ins>Mohsin Imam</ins>  
   **Venue:** *Breast Disease, IOS Press*, 2024  
-  [[Link](https://content.iospress.com/articles/breast-disease/bd240018)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](https://content.iospress.com/articles/breast-disease/bd240018)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract: </strong>  
@@ -109,7 +109,7 @@ permalink: /research/
 - **Assessing AI Chatbot Responses in Promoting COVID-19 Vaccine Acceptance**  
   **Authors:** <ins>Mohsin Imam</ins>, Abdul Quershi  
   **Venue:** *Social Science Research Network*, 2024  
-  [[Link](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4851422)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4851422)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract:</strong>  
@@ -132,7 +132,7 @@ permalink: /research/
 - **Comparative Analysis of Deep Learning Models for Alzheimer's Disease Stage Classification Using Transfer Learning**  
   **Authors:** Archana Gahlaut, <ins>Mohsin Imam</ins>  
   **Venue:** *Part of this work Venue: IEEE ICCCIS*, 2023  
-  [[Link](https://ieeexplore.ieee.org/document/10425684)] [[Report](https://drive.google.com/file/d/1s1tcu3Q9VNlC0LpohrAbGucqUPPk3RSk/view?usp=sharing)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](https://ieeexplore.ieee.org/document/10425684)] [[Report](https://drive.google.com/file/d/1s1tcu3Q9VNlC0LpohrAbGucqUPPk3RSk/view?usp=sharing)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract:</strong>  
@@ -162,7 +162,7 @@ permalink: /research/
 - **Precision Location Keyword Detection Using Offline Speech Recognition Technique**  
   **Authors:** <ins>Mohsin Imam</ins>, Gaurav Gupta  
   **Venue:** *Preprints.org*, 2023  
-  [[Link](https://www.preprints.org/manuscript/202310.0690/v2)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](https://www.preprints.org/manuscript/202310.0690/v2)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract:</strong>  
@@ -173,7 +173,7 @@ permalink: /research/
 - **Air Quality Monitoring Using Statistical Learning Models for Sustainable Environment**  
   **Authors:** <ins>Mohsin Imam</ins>, Sufiyan Adam, Soumyabrata Dev, Nashreen Nesa  
   **Venue:** *Intelligent Systems with Applications, Elsevier*, 2024  
-  [[Link](https://www.sciencedirect.com/science/article/pii/S2667305324000097?via%3Dihub#br0110)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">Abs</a>]
+  [[link](https://www.sciencedirect.com/science/article/pii/S2667305324000097?via%3Dihub#br0110)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
     <strong>Abstract:</strong>  
