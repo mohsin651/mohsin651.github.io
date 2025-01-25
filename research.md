@@ -4,9 +4,9 @@ title: Research
 permalink: /research/
 ---
 
-- **DAMM**: Dynamic Modality Agnostic Weighted Embeddings Fusion for Multimodal Meme Detection  
+- **DAMM**: Dynamic Modality Aware Weighted Embeddings Fusion for Multimodal Meme Detection  
   **Authors:** <ins>Mohsin Imam</ins>, Utathya Aich, Ram Sarkar  
-  **Venue:** *Elsevier*, 2024 (Under Preparation)  
+  **Venue:** *Information Fusion, Elsevier*, 2024 (Under Review)  
   [[pdf](/papers/DAMM.pdf)] [<a href="javascript:void(0)" onclick="toggleAbstract(this)">abs</a>]
 
   <div class="abstract-box" style="border: 1px dashed white; padding: 5px; display: none; margin-top: 5px;">
