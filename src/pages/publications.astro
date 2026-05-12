@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { papers } from '../data/papers';
+
+// Tier-1 venues get a subtle badge; everything else is plain.
+const tier1 = ['Elsevier', 'Springer', 'IEEE', 'Nature', 'Neural Networks', 'Information Fusion'];
+function venueTier(venue: string): string | null {
+  for (const t of tier1) if (venue.includes(t)) return t.split(' ')[0];
+  return null;
+}
+
+// Topic tags derived from the paper title/venue
+function topicsFor(p: typeof papers[number]): string[] {
+  const text = `${p.title} ${p.venue}`.toLowerCase();
+  const out: string[] = [];
+  if (/(meme|multimodal|fusion)/.test(text)) out.push('Multimodal');
+  if (/(llm|prompt|language model|nlp|bert)/.test(text)) out.push('LLM');
+  if (/(rag|retrieval)/.test(text)) out.push('RAG');
+  if (/(cnn|image|vision|mri|alzheimer|skin|medical)/.test(text)) out.push('Vision');
+  if (/(blockchain|decentral)/.test(text)) out.push('Blockchain');
+  if (/(air quality|environment|sustain)/.test(text)) out.push('Sustainability');
+  return out.length ? out : ['Other'];
+}
+
+// All distinct topics, for filter chips
+const allTopics = Array.from(new Set(papers.flatMap(topicsFor))).sort();
+
+// Sort: selected first, then by year desc
+const sorted = [...papers].sort((a, b) => {
+  if (!!b.selected !== !!a.selected) return Number(!!b.selected) - Number(!!a.selected);
+  return b.year - a.year;
+});
+
+// Group by year for headings; selected stay pinned in their year section visually
+const papersByYear = sorted.reduce((acc, paper) => {
+  if (!acc[paper.year]) acc[paper.year] = [];
+  acc[paper.year].push({ ...paper, _topics: topicsFor(paper), _tier: venueTier(paper.venue) });
+  return acc;
+}, {} as Record<number, Array<typeof papers[number] & { _topics: string[]; _tier: string | null }>>);
+
+const years = Object.keys(papersByYear).map(Number).sort((a, b) => b - a);
+const selectedCount = papers.filter((p) => p.selected).length;
+---
+
+<Layout title="publications" description="Research publications by Mohsin Imam">
+  <div class="container-page py-12">
+    <h1 class="heading-page">Publications</h1>
+    <p class="subtitle-page">
+      {papers.length} peer-reviewed papers · <span class="text-accent">{selectedCount} selected</span>
+    </p>
+
+    <!-- Topic filter chips -->
+    <div class="flex flex-wrap gap-2 mb-10" id="topic-filter">
+      <button type="button" class="topic-chip topic-chip-active" data-topic="all">all</button>
+      {allTopics.map((t) => (
+        <button type="button" class="topic-chip" data-topic={t}>{t.toLowerCase()}</button>
+      ))}
+    </div>
+
+    {years.map((year) => (
+      <section class="mb-10 year-section" data-year={year}>
+        <h2 class="section-heading">{year}</h2>
+        <div class="space-y-7">
+          {papersByYear[year].map((paper) => (
+            <article class="paper-entry group" data-topics={paper._topics.join(',')}>
+              {paper.selected && (
+                <span class="paper-selected-marker" aria-label="Selected publication">★</span>
+              )}
+              <h3 class="font-medium text-lg leading-snug" style="color: var(--color-text);">
+                {paper.link ? (
+                  <a href={paper.link} target="_blank" rel="noopener" class="paper-title">{paper.title}</a>
+                ) : paper.title}
+              </h3>
+              <p class="text-sm mt-1" style="color: var(--color-text-muted);" set:html={paper.authors.replace(/Mohsin Imam/g, '<strong style="color: var(--color-text);">Mohsin Imam</strong>')}></p>
+              <p class="text-sm italic mt-1 flex flex-wrap items-center gap-x-2 gap-y-1" style="color: var(--color-text-subtle);">
+                <span>{paper.venue}, {paper.year}</span>
+                {paper._tier && <span class="pill pill-accent not-italic">{paper._tier}</span>}
+                {paper.status && paper.status !== 'Published' && (
+                  <span class="pill not-italic">{paper.status}</span>
+                )}
+              </p>
+              <div class="flex gap-2 mt-3 items-center flex-wrap">
+                {paper.link && (
+                  <a href={paper.link} target="_blank" rel="noopener" class="paper-btn">link</a>
+                )}
+                {paper.pdf && (
+                  <a href={paper.pdf} target="_blank" rel="noopener" class="paper-btn">pdf</a>
+                )}
+                {paper.abstract && (
+                  <button
+                    type="button"
+                    class="paper-btn abstract-toggle"
+                    data-target={`abstract-${paper.title.replace(/[^a-zA-Z0-9]/g, '-').slice(0, 40)}`}
+                  >
+                    abstract
+                  </button>
+                )}
+                <span class="ml-auto flex gap-1">
+                  {paper._topics.map((t) => <span class="pill text-[0.65rem]">{t.toLowerCase()}</span>)}
+                </span>
+              </div>
+              {paper.abstract && (
+                <div
+                  id={`abstract-${paper.title.replace(/[^a-zA-Z0-9]/g, '-').slice(0, 40)}`}
+                  class="hidden mt-3 p-4 rounded text-sm leading-relaxed"
+                  style="background-color: var(--color-surface); border-left: 2px solid var(--color-accent); color: var(--color-text-muted);"
+                >
+                  {paper.abstract}
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Layout>
+
+<script>
+  // Abstract toggle
+  document.querySelectorAll('.abstract-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = (btn as HTMLElement).dataset.target;
+      if (target) document.getElementById(target)?.classList.toggle('hidden');
+    });
+  });
+
+  // Topic filter
+  const chips = document.querySelectorAll<HTMLButtonElement>('.topic-chip');
+  const entries = document.querySelectorAll<HTMLElement>('.paper-entry');
+  const sections = document.querySelectorAll<HTMLElement>('.year-section');
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const topic = chip.dataset.topic!;
+      chips.forEach((c) => c.classList.remove('topic-chip-active'));
+      chip.classList.add('topic-chip-active');
+      entries.forEach((e) => {
+        const topics = (e.dataset.topics || '').split(',');
+        e.style.display = topic === 'all' || topics.includes(topic) ? '' : 'none';
+      });
+      // Hide year sections that have no visible entries
+      sections.forEach((s) => {
+        const visible = Array.from(s.querySelectorAll<HTMLElement>('.paper-entry')).some((e) => e.style.display !== 'none');
+        s.style.display = visible ? '' : 'none';
+      });
+    });
+  });
+</script>

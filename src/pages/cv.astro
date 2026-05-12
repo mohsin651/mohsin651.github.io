@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { experiences, education } from '../data/experience';
+---
+
+<Layout title="cv" description="CV of Mohsin Imam">
+  <div class="container-page py-12">
+    <div class="flex justify-between items-start mb-8 flex-wrap gap-3">
+      <div>
+        <h1 class="heading-page">CV</h1>
+        <p class="subtitle-page">Mohsin Imam — AI Researcher</p>
+      </div>
+      <a href="/pdf/cv.pdf" download class="btn-accent">
+        ↓ Download PDF
+      </a>
+    </div>
+
+    <!-- Education -->
+    <section class="mb-12">
+      <h2 class="section-heading">Education</h2>
+      <div class="space-y-8">
+        {education.map((edu) => (
+          <div class="cv-entry">
+            <div class="flex justify-between flex-wrap gap-2 items-baseline">
+              <h3 class="font-medium text-lg">{edu.degree}</h3>
+              <span class="text-sm" style="color: var(--color-text-subtle);">{edu.duration}</span>
+            </div>
+            <p class="text-accent text-sm mt-0.5">{edu.institution}</p>
+            {edu.grade && <p class="text-sm mt-1" style="color: var(--color-text-muted);">Grade: {edu.grade}</p>}
+            {edu.details && (
+              <ul class="list-disc list-outside ml-5 text-sm mt-2 space-y-0.5" style="color: var(--color-text-muted);">
+                {edu.details.map((d) => <li>{d}</li>)}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="mb-12">
+      <h2 class="section-heading">Experience</h2>
+      <div class="space-y-8">
+        {experiences.map((exp) => (
+          <div class="cv-entry">
+            <div class="flex justify-between flex-wrap gap-2 items-baseline">
+              <div>
+                <h3 class="font-medium text-lg">{exp.role}</h3>
+                <p class="text-accent text-sm mt-0.5">
+                  {exp.company} <span style="color: var(--color-text-subtle);">· {exp.type}</span>
+                </p>
+              </div>
+              <div class="text-sm text-right" style="color: var(--color-text-subtle);">
+                <p>{exp.duration}</p>
+                {exp.location && <p class="text-xs mt-0.5">{exp.location}</p>}
+              </div>
+            </div>
+            <ul class="list-disc list-outside ml-5 text-sm mt-2 space-y-1" style="color: var(--color-text-muted);">
+              {exp.bullets.map((b) => <li>{b}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

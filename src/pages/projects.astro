@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    title: "RAG Pipeline for Scientific Q&A",
+    description: "End-to-end Retrieval-Augmented Generation system for spectroscopy queries with Milvus vector DB, S3/Drive integration, and async APIs.",
+    tags: ["RAG", "LLM", "Milvus", "Python", "FastAPI"],
+    link: "#",
+    featured: true,
+    highlight: "Built at Vionix Biosciences",
+  },
+  {
+    title: "DAMM: Multimodal Meme Detection",
+    description: "Dynamic Modality Aware Weighted Embeddings Fusion achieving SOTA on benchmark datasets for hate speech detection in memes.",
+    tags: ["Multimodal", "Deep Learning", "PyTorch"],
+    link: "#",
+  },
+  {
+    title: "LLM Adversarial Prompt Classifier",
+    description: "BERT-DistilBERT ensemble model achieving 97.56% accuracy in detecting malicious/adversarial prompts targeting LLMs.",
+    tags: ["NLP", "BERT", "Security"],
+    link: "#",
+  },
+  {
+    title: "Air Quality Prediction System",
+    description: "ML system using SVM and Random Forest for AQI prediction with 97.98% accuracy on Kolkata air quality data.",
+    tags: ["ML", "Sklearn", "EDA"],
+    link: "https://www.sciencedirect.com/science/article/pii/S2667305324000097",
+  },
+  {
+    title: "Alzheimer's MRI Classification",
+    description: "Transfer learning with EfficientNetB7 on Alzheimer's MRI scans achieving 97.88% accuracy across 4 dementia stages.",
+    tags: ["CNN", "Transfer Learning", "Medical AI"],
+    link: "https://ieeexplore.ieee.org/document/10425684",
+  },
+  {
+    title: "Pricesy - Laptop Price Predictor",
+    description: "ML-powered price estimation based on CPU, GPU, RAM and other specs. ~85% accuracy across regression algorithms.",
+    tags: ["ML", "Regression", "Pandas"],
+    link: "#",
+  },
+];
+
+const featured = projects.find((p) => p.featured);
+const rest = projects.filter((p) => !p.featured);
+---
+
+<Layout title="projects" description="Selected projects by Mohsin Imam">
+  <div class="container-page py-12">
+    <h1 class="heading-page">Projects</h1>
+    <p class="subtitle-page">A selection of research and engineering projects</p>
+
+    {featured && (
+      <a
+        href={featured.link}
+        target={featured.link.startsWith('http') ? '_blank' : ''}
+        rel="noopener"
+        class="project-featured block mb-10 hover:no-underline group"
+      >
+        <div class="grid md:grid-cols-5 gap-0 overflow-hidden rounded-lg border" style="border-color: var(--color-border);">
+          <div class="md:col-span-2 project-featured-visual">
+            <div class="project-visual-glow"></div>
+            <span class="project-visual-label">{featured.tags[0]}</span>
+          </div>
+          <div class="md:col-span-3 p-6 md:p-8" style="background-color: var(--color-card-bg);">
+            {featured.highlight && (
+              <span class="pill pill-accent mb-3">★ {featured.highlight}</span>
+            )}
+            <h2 class="text-2xl font-medium mt-2 mb-3 hover-accent group-hover:text-accent transition-colors">
+              {featured.title}
+            </h2>
+            <p class="text-base mb-4 leading-relaxed" style="color: var(--color-text-muted);">
+              {featured.description}
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              {featured.tags.map((tag) => <span class="pill">{tag}</span>)}
+            </div>
+          </div>
+        </div>
+      </a>
+    )}
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {rest.map((project) => (
+        <a
+          href={project.link}
+          target={project.link.startsWith('http') ? '_blank' : ''}
+          rel="noopener"
+          class="project-card block p-5 rounded-lg hover:no-underline group"
+        >
+          <h3 class="font-medium text-base mb-2 group-hover:text-accent transition-colors" style="color: var(--color-text);">
+            {project.title}
+          </h3>
+          <p class="text-sm mb-3 leading-relaxed" style="color: var(--color-text-muted);">{project.description}</p>
+          <div class="flex flex-wrap gap-1">
+            {project.tags.slice(0, 3).map((tag) => <span class="pill">{tag}</span>)}
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

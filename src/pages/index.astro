@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { papers } from '../data/papers';
+
+const selectedPapers = papers.filter((p) => p.selected);
+---
+
+<Layout title="about">
+  <div class="container-page py-12">
+    <!-- Header section: Name + Bio with image floated right -->
+    <div class="mb-12">
+      <h1 class="heading-page">Mohsin Imam</h1>
+      <p class="subtitle-page">
+        Erasmus Mundus Scholar | IPCVai (UAM-Pázmány) | AI &amp; Computer Vision Researcher
+      </p>
+
+      <!-- Floated image on the right -->
+      <div class="float-right ml-8 mb-6">
+        <div class="sparkle-container">
+          <div class="flip-card w-48 h-48">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="/img/prof_pic.png"
+                  alt="Mohsin Imam"
+                  class="w-full h-full rounded-2xl object-cover shadow-lg"
+                />
+              </div>
+              <div class="flip-card-back">
+                <img
+                  src="/img/ai_cat.png"
+                  alt="AI Cat"
+                  class="w-full h-full rounded-2xl object-cover shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Sparkle dots ✨ -->
+          <span class="sparkle sparkle-1">✦</span>
+          <span class="sparkle sparkle-2">✦</span>
+          <span class="sparkle sparkle-3">✦</span>
+          <span class="sparkle sparkle-4">✦</span>
+          <span class="sparkle sparkle-5">✦</span>
+          <span class="sparkle sparkle-6">✦</span>
+          <span class="sparkle sparkle-7">✧</span>
+          <span class="sparkle sparkle-8">✧</span>
+        </div>
+        <div class="mt-4 text-sm text-gray-600 dark:text-gray-400 space-y-1 text-center">
+          <p>📍 Madrid, Spain | Delhi, India</p>
+        </div>
+      </div>
+
+      <div class="prose dark:prose-invert max-w-none">
+        <p class="text-lg leading-relaxed mb-4">
+          I'm an AI researcher and software engineer passionate about advancing AI through
+          cutting-edge research and real-world applications. Currently pursuing a Master's in
+          Computer Vision at the Erasmus Mundus
+          <strong>IPCVai</strong> program (UAM, Spain &amp; Pázmány, Hungary), with specialization in
+          <strong>Multimodal Deep Learning</strong>, <strong>Generative AI</strong>, and
+          <strong>Computer Vision</strong>.
+        </p>
+
+        <h3 class="text-xl font-medium mt-6 mb-2">Research Interests</h3>
+        <ul class="list-disc list-inside space-y-1 mb-4">
+          <li>Multimodal AI &amp; Meme Detection</li>
+          <li>Large Language Models &amp; Prompt Security</li>
+          <li>Retrieval-Augmented Generation (RAG) Systems</li>
+          <li>Blockchain &amp; Decentralized Applications</li>
+          <li>AI for Healthcare &amp; Social Impact</li>
+        </ul>
+
+        <h3 class="text-xl font-medium mt-6 mb-2">Recent Work</h3>
+        <ul class="list-disc list-inside space-y-1 mb-4">
+          <li>
+            <strong>GenAI Developer</strong> at Vionix Biosciences: Built RAG pipelines for
+            scientific Q&amp;A and NL2SQL systems
+          </li>
+          <li>
+            <strong>Research Assistant</strong> at Jadavpur University: Developed multimodal AI
+            solutions for hateful content detection
+          </li>
+          <li>
+            <strong>15+ peer-reviewed publications</strong> in top-tier venues including
+            Elsevier, Springer, and IEEE
+          </li>
+        </ul>
+
+        <div class="mt-6 callout-accent">
+          <p>
+            I'm currently seeking <strong>Summer 2026 internships</strong> in AI/ML research and
+            development. Feel free to reach out for collaboration opportunities!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Section -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-light mb-6">News</h2>
+      <div class="news-scroll space-y-3 max-h-72 overflow-y-auto pr-3">
+        <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
+          <span class="text-sm text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Apr 2025</span>
+          <p>Started role as <strong>GenAI Developer</strong> at Vionix Biosciences building RAG pipelines for scientific Q&amp;A.</p>
+        </div>
+        <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
+          <span class="text-sm text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Sep 2025</span>
+          <p>Began Master's in Computer Vision at <strong>Pázmány Péter Catholic University</strong> as part of Erasmus Mundus IPCVai.</p>
+        </div>
+        <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
+          <span class="text-sm text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Oct 2024</span>
+          <p>Joined <strong>Jadavpur University</strong> as Research Assistant working on multimodal AI for hate speech detection.</p>
+        </div>
+        <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
+          <span class="text-sm text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Jul 2024</span>
+          <p>Started contract as <strong>Data Scientist</strong> contributing to GenAI + RAG projects.</p>
+        </div>
+        <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
+          <span class="text-sm text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Jun 2023</span>
+          <p>Joined <strong>DRDO</strong> as NLP Intern working on Speech Processing Models.</p>
+        </div>
+        <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
+          <span class="text-sm text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Jun 2023</span>
+          <p>Graduated with <strong>B.Sc. (H) Computer Science</strong> from Delhi University.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Publications -->
+    <section>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-light">Selected Publications</h2>
+        <a href="/publications" class="text-sm">view all →</a>
+      </div>
+      <div class="space-y-6">
+        {selectedPapers.map((paper) => (
+          <article class="border-l-2 border-accent pl-4">
+            <h3 class="font-medium text-lg leading-snug">
+              {paper.link ? (
+                <a href={paper.link} target="_blank" rel="noopener" class="hover:underline">{paper.title}</a>
+              ) : paper.title}
+            </h3>
+            <p class="text-sm text-gray-700 dark:text-gray-300 mt-1">{paper.authors}</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 italic mt-1">
+              {paper.venue}, {paper.year}
+              {paper.status && paper.status !== 'Published' && (
+                <span class="ml-2 px-2 py-0.5 text-xs rounded bg-gray-200 dark:bg-gray-700">{paper.status}</span>
+              )}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

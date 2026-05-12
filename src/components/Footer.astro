@@ -1,0 +1,52 @@
+---
+import { site } from '../data/site';
+import SocialLinks from './SocialLinks.astro';
+const year = new Date().getFullYear();
+const lastUpdated = new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+---
+
+<footer class="mt-20" style="border-top: 1px solid var(--color-border);">
+  <div class="container-page py-10">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <!-- Identity -->
+      <div>
+        <h3 class="font-medium mb-2" style="color: var(--color-text);">{site.author}</h3>
+        <p class="text-sm leading-relaxed" style="color: var(--color-text-muted);">
+          AI &amp; Computer Vision researcher.<br />
+          Currently in Madrid · Open to Summer 2026 internships.
+        </p>
+        <div class="mt-4">
+          <SocialLinks />
+        </div>
+      </div>
+
+      <!-- Quick nav -->
+      <div>
+        <h3 class="font-medium mb-2 text-sm uppercase tracking-wider" style="color: var(--color-text-subtle);">Explore</h3>
+        <ul class="space-y-1.5 text-sm">
+          {site.navigation.map((item) => (
+            <li>
+              <a href={item.href} class="hover-accent" style="color: var(--color-text-muted);">{item.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact / Meta -->
+      <div>
+        <h3 class="font-medium mb-2 text-sm uppercase tracking-wider" style="color: var(--color-text-subtle);">Reach out</h3>
+        <ul class="space-y-1.5 text-sm" style="color: var(--color-text-muted);">
+          <li><a href={`mailto:${site.email}`} class="hover-accent">{site.email}</a></li>
+          <li>Madrid, Spain</li>
+          <li>Delhi, India</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row justify-between items-center pt-6 text-xs gap-2"
+         style="border-top: 1px solid var(--color-border); color: var(--color-text-subtle);">
+      <p>© {year} {site.author}. All rights reserved.</p>
+      <p>Last updated · {lastUpdated}</p>
+    </div>
+  </div>
+</footer>
