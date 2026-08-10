@@ -66,13 +66,13 @@ const selectedCount = papers.filter((p) => p.selected).length;
               {paper.selected && (
                 <span class="paper-selected-marker" aria-label="Selected publication">★</span>
               )}
-              <h3 class="font-medium text-lg leading-snug" style="color: var(--color-text);">
+              <h3 class="font-light text-base leading-snug" style="color: var(--color-text);">
                 {paper.link ? (
                   <a href={paper.link} target="_blank" rel="noopener" class="paper-title">{paper.title}</a>
                 ) : paper.title}
               </h3>
-              <p class="text-sm mt-1" style="color: var(--color-text-muted);" set:html={paper.authors.replace(/Mohsin Imam/g, '<strong style="color: var(--color-text);">Mohsin Imam</strong>')}></p>
-              <p class="text-sm italic mt-1 flex flex-wrap items-center gap-x-2 gap-y-1" style="color: var(--color-text-subtle);">
+              <p class="text-xs mt-1" style="color: var(--color-text-muted);" set:html={paper.authors.replace(/Mohsin Imam/g, '<strong style="color: var(--color-text);">Mohsin Imam</strong>')}></p>
+              <p class="text-xs italic mt-1 flex flex-wrap items-center gap-x-2 gap-y-1" style="color: var(--color-text-subtle);">
                 <span>{paper.venue}, {paper.year}</span>
                 {paper._tier && <span class="pill pill-accent not-italic">{paper._tier}</span>}
                 {paper.status && paper.status !== 'Published' && (
@@ -96,13 +96,13 @@ const selectedCount = papers.filter((p) => p.selected).length;
                   </button>
                 )}
                 <span class="ml-auto flex gap-1">
-                  {paper._topics.map((t) => <span class="pill text-[0.65rem]">{t.toLowerCase()}</span>)}
+                  {paper._topics.map((t) => <span class="pill text-[0.6rem]">{t.toLowerCase()}</span>)}
                 </span>
               </div>
               {paper.abstract && (
                 <div
                   id={`abstract-${paper.title.replace(/[^a-zA-Z0-9]/g, '-').slice(0, 40)}`}
-                  class="hidden mt-3 p-4 rounded text-sm leading-relaxed"
+                  class="hidden mt-3 p-4 rounded text-xs leading-relaxed"
                   style="background-color: var(--color-surface); border-left: 2px solid var(--color-accent); color: var(--color-text-muted);"
                 >
                   {paper.abstract}

@@ -6,9 +6,9 @@ export default {
     extend: {
       colors: {},
       fontFamily: {
-        sans: ['Spectral', 'serif'],
-        serif: ['Spectral', 'serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['var(--font-body)'],
+        serif: ['var(--font-body)'],
+        mono: ['var(--font-mono)'],
       },
       typography: {
         DEFAULT: {

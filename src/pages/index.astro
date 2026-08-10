@@ -20,30 +20,62 @@ const selectedPapers = papers.filter((p) => p.selected);
         <div class="flip-card w-48 h-48">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img
-                src="/img/prof_pic.png"
-                alt="Mohsin Imam"
-                class="w-full h-full rounded-2xl object-cover shadow-lg border-4"
-                style="border-color: var(--color-accent)"
-              />
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="/img/prof_pic-192.avif 192w, /img/prof_pic-384.avif 384w"
+                  sizes="192px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="/img/prof_pic-192.webp 192w, /img/prof_pic-384.webp 384w"
+                  sizes="192px"
+                />
+                <img
+                  src="/img/prof_pic.png"
+                  alt="Mohsin Imam"
+                  width="192"
+                  height="192"
+                  decoding="async"
+                  fetchpriority="high"
+                  class="w-full h-full rounded-2xl object-cover shadow-lg border-4"
+                  style="border-color: var(--color-accent)"
+                />
+              </picture>
             </div>
             <div class="flip-card-back">
-              <img
-                src="/img/ai_cat.png"
-                alt="AI Cat"
-                class="w-full h-full rounded-2xl object-cover shadow-lg border-4"
-                style="border-color: var(--color-accent)"
-              />
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="/img/ai_cat-192.avif 192w, /img/ai_cat-384.avif 384w"
+                  sizes="192px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="/img/ai_cat-192.webp 192w, /img/ai_cat-384.webp 384w"
+                  sizes="192px"
+                />
+                <img
+                  src="/img/ai_cat.png"
+                  alt="AI Cat"
+                  width="192"
+                  height="192"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full rounded-2xl object-cover shadow-lg border-4"
+                  style="border-color: var(--color-accent)"
+                />
+              </picture>
             </div>
           </div>
         </div>
-        <div class="mt-4 text-sm text-gray-600 dark:text-gray-400 space-y-1 text-center">
+        <div class="mt-4 text-xs text-gray-600 dark:text-gray-400 space-y-1 text-center">
           <p>📍 Madrid, Spain | Delhi, India</p>
         </div>
       </div>
 
       <div class="prose dark:prose-invert max-w-none">
-        <p class="text-lg leading-relaxed mb-4">
+        <p class="text-base leading-relaxed mb-4">
           I'm an AI researcher and software engineer passionate about advancing AI through
           cutting-edge research and real-world applications. Currently pursuing a Master's in
           Computer Vision at the Erasmus Mundus
@@ -52,7 +84,7 @@ const selectedPapers = papers.filter((p) => p.selected);
           <strong>Computer Vision</strong>.
         </p>
 
-        <h3 class="text-xl font-medium mt-6 mb-2">Research Interests</h3>
+        <h3 class="text-lg font-light mt-6 mb-2">Research Interests</h3>
         <ul class="list-disc list-inside space-y-1 mb-4">
           <li>Multimodal AI &amp; Meme Detection</li>
           <li>Large Language Models &amp; Prompt Security</li>
@@ -61,7 +93,7 @@ const selectedPapers = papers.filter((p) => p.selected);
           <li>AI for Healthcare &amp; Social Impact</li>
         </ul>
 
-        <h3 class="text-xl font-medium mt-6 mb-2">Recent Work</h3>
+        <h3 class="text-lg font-light mt-6 mb-2">Recent Work</h3>
         <ul class="list-disc list-inside space-y-1 mb-4">
           <li>
             <strong>GenAI Developer</strong> at Vionix Biosciences: Built RAG pipelines for
@@ -88,30 +120,30 @@ const selectedPapers = papers.filter((p) => p.selected);
 
     <!-- News Section -->
     <section class="mb-12">
-      <h2 class="text-3xl font-light mb-6">News</h2>
+      <h2 class="text-2xl font-light mb-6">News</h2>
       <div class="news-scroll space-y-3 max-h-72 overflow-y-auto pr-3">
         <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
-          <span class="text-sm text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Apr 2025</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Apr 2025</span>
           <p>Started role as <strong>GenAI Developer</strong> at Vionix Biosciences building RAG pipelines for scientific Q&amp;A.</p>
         </div>
         <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
-          <span class="text-sm text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Sep 2025</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Sep 2025</span>
           <p>Began Master's in Computer Vision at <strong>Pázmány Péter Catholic University</strong> as part of Erasmus Mundus IPCVai.</p>
         </div>
         <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
-          <span class="text-sm text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Oct 2024</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Oct 2024</span>
           <p>Joined <strong>Jadavpur University</strong> as Research Assistant working on multimodal AI for hate speech detection.</p>
         </div>
         <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
-          <span class="text-sm text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Jul 2024</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Jul 2024</span>
           <p>Started contract as <strong>Data Scientist</strong> contributing to GenAI + RAG projects.</p>
         </div>
         <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
-          <span class="text-sm text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Jun 2023</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Jun 2023</span>
           <p>Joined <strong>DRDO</strong> as NLP Intern working on Speech Processing Models.</p>
         </div>
         <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
-          <span class="text-sm text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Jun 2023</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Jun 2023</span>
           <p>Graduated with <strong>B.Sc. (H) Computer Science</strong> from Delhi University.</p>
         </div>
       </div>
@@ -120,22 +152,22 @@ const selectedPapers = papers.filter((p) => p.selected);
     <!-- Selected Publications -->
     <section>
       <div class="flex justify-between items-center mb-6">
-        <h2 class="text-3xl font-light">Selected Publications</h2>
-        <a href="/publications" class="text-sm">view all →</a>
+        <h2 class="text-2xl font-light">Selected Publications</h2>
+        <a href="/publications" class="text-xs">view all →</a>
       </div>
       <div class="space-y-6">
         {selectedPapers.map((paper) => (
           <article class="border-l-2 border-accent pl-4">
-            <h3 class="font-medium text-lg leading-snug">
+            <h3 class="font-light text-base leading-snug">
               {paper.link ? (
                 <a href={paper.link} target="_blank" rel="noopener" class="hover:underline">{paper.title}</a>
               ) : paper.title}
             </h3>
-            <p class="text-sm text-gray-700 dark:text-gray-300 mt-1">{paper.authors}</p>
-            <p class="text-sm text-gray-600 dark:text-gray-400 italic mt-1">
+            <p class="text-xs text-gray-700 dark:text-gray-300 mt-1">{paper.authors}</p>
+            <p class="text-xs text-gray-600 dark:text-gray-400 italic mt-1">
               {paper.venue}, {paper.year}
               {paper.status && paper.status !== 'Published' && (
-                <span class="ml-2 px-2 py-0.5 text-xs rounded bg-gray-200 dark:bg-gray-700">{paper.status}</span>
+                <span class="ml-2 px-2 py-0.5 text-[0.7rem] rounded bg-gray-200 dark:bg-gray-700">{paper.status}</span>
               )}
             </p>
           </article>

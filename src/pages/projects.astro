@@ -67,10 +67,10 @@ const rest = projects.filter((p) => !p.featured);
             {featured.highlight && (
               <span class="pill pill-accent mb-3">★ {featured.highlight}</span>
             )}
-            <h2 class="text-2xl font-medium mt-2 mb-3 hover-accent group-hover:text-accent transition-colors">
+            <h2 class="text-xl font-light mt-2 mb-3 hover-accent group-hover:text-accent transition-colors">
               {featured.title}
             </h2>
-            <p class="text-base mb-4 leading-relaxed" style="color: var(--color-text-muted);">
+            <p class="text-sm mb-4 leading-relaxed" style="color: var(--color-text-muted);">
               {featured.description}
             </p>
             <div class="flex flex-wrap gap-1.5">
@@ -89,10 +89,10 @@ const rest = projects.filter((p) => !p.featured);
           rel="noopener"
           class="project-card block p-5 rounded-lg hover:no-underline group"
         >
-          <h3 class="font-medium text-base mb-2 group-hover:text-accent transition-colors" style="color: var(--color-text);">
+          <h3 class="font-light text-sm mb-2 group-hover:text-accent transition-colors" style="color: var(--color-text);">
             {project.title}
           </h3>
-          <p class="text-sm mb-3 leading-relaxed" style="color: var(--color-text-muted);">{project.description}</p>
+          <p class="text-xs mb-3 leading-relaxed" style="color: var(--color-text-muted);">{project.description}</p>
           <div class="flex flex-wrap gap-1">
             {project.tags.slice(0, 3).map((tag) => <span class="pill">{tag}</span>)}
           </div>

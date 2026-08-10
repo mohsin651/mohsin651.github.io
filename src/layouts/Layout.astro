@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../data/site';
+import { fonts } from '../data/fonts';
 
 interface Props {
   title?: string;
@@ -11,6 +12,12 @@ interface Props {
 
 const { title = site.title, description = site.description } = Astro.props;
 const fullTitle = title === site.title ? title : `${title} | ${site.title}`;
+const googleFontQueries = [fonts.body.googleQuery, fonts.mono.googleQuery].filter(Boolean);
+const fontHref = `https://fonts.googleapis.com/css2?${googleFontQueries
+  .map((font) => `family=${font.replace(/ /g, '+')}`)
+  .join('&')}&display=swap`;
+const fontFamily = (font: { family?: string; name?: string; fallback?: string }) =>
+  font.family ?? `'${font.name?.replace(/'/g, "\\'")}', ${font.fallback}`;
 ---
 
 <!doctype html>
@@ -24,26 +31,22 @@ const fullTitle = title === site.title ? title : `${title} | ${site.title}`;
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono&display=swap" rel="stylesheet" />
+    {googleFontQueries.length > 0 && <link href={fontHref} rel="stylesheet" />}
+    <style define:vars={{
+      fontBody: fontFamily(fonts.body),
+      fontMono: fontFamily(fonts.mono),
+    }}>
+      :root {
+        --font-body: var(--fontBody);
+        --font-mono: var(--fontMono);
+      }
+    </style>
 
     <title>{fullTitle}</title>
 
-    <!-- Theme initialization (prevent flicker) -->
+    <!-- Theme initialization (dark-only UI; toggle code is kept in Navbar for future use) -->
     <script is:inline>
-      const theme = (() => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
-        }
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          return 'dark';
-        }
-        return 'light';
-      })();
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      document.documentElement.classList.add('dark');
     </script>
   </head>
   <body class="min-h-screen flex flex-col">
