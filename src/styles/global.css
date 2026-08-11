@@ -65,7 +65,12 @@
     transition: background-color 0.3s ease, color 0.3s ease;
     font-family: var(--font-body);
     font-size: 1rem;
+    font-weight: 300;
     line-height: 1.6;
+  }
+
+  strong {
+    font-weight: 400;
   }
 
   h1, h2, h3, h4, h5, h6 {

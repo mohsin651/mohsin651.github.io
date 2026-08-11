@@ -1,7 +1,7 @@
 export const fonts = {
   body: {
-    name: 'Google Sans Flex',
-    googleQuery: 'Google Sans Flex:wght@100;300;400',
+    name: 'Lexend Deca',
+    googleQuery: 'Lexend Deca:wght@100;200;300;400',
     fallback: 'sans-serif',
   },
   mono: {
