@@ -1,8 +1,8 @@
 export const fonts = {
   body: {
-    name: 'Lexend Deca',
-    googleQuery: 'Lexend Deca:wght@100;200;300;400',
-    fallback: 'sans-serif',
+    name: 'Crimson Pro',
+    googleQuery: 'Crimson Pro:wght@200;300;400;500;600;700',
+    fallback: 'serif',
   },
   mono: {
     name: 'Fira Code',
