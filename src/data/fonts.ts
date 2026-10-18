@@ -1,12 +1,12 @@
 export const fonts = {
   body: {
-    name: 'Crimson Pro',
-    googleQuery: 'Crimson Pro:wght@200;300;400;500;600;700',
-    fallback: 'serif',
+    name: 'Lato',
+    googleQuery: 'Lato:wght@400;700',
+    fallback: 'sans-serif',
   },
   mono: {
-    name: 'Fira Code',
-    googleQuery: 'Fira Code:wght@300;400;500;600',
+    name: 'DM Mono',
+    googleQuery: 'DM Mono:wght@400;500',
     fallback: 'monospace',
   },
 };
