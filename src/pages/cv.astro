@@ -1,66 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { experiences, education } from '../data/experience';
+import { experiences } from '../data/experience';
 ---
 
-<Layout title="cv" description="CV of Mohsin Imam">
-  <div class="container-page py-12">
-    <div class="flex justify-between items-start mb-8 flex-wrap gap-3">
+<Layout title="experience" description="Experience and education of Mohsin Imam">
+  <div class="container-page page-content">
+    <div class="flex justify-between items-start gap-4 flex-wrap mb-8">
       <div>
-        <h1 class="heading-page">CV</h1>
-        <p class="subtitle-page">Mohsin Imam — AI Researcher</p>
+        <h1 class="page-heading">Experience</h1>
+        <p class="page-lede">Research, engineering, and applied machine learning.</p>
       </div>
-      <a href="/pdf/cv.pdf" target="_blank" rel="noopener" class="btn-accent">
-        View PDF
-      </a>
+      <a href="/pdf/cv_mohsin.pdf" target="_blank" rel="noopener" class="action-link">View resume</a>
     </div>
 
-    <!-- Education -->
-    <section class="mb-12">
-      <h2 class="section-heading">Education</h2>
-      <div class="space-y-8">
-        {education.map((edu) => (
-          <div class="cv-entry">
-            <div class="flex justify-between flex-wrap gap-2 items-baseline">
-              <h3 class="font-light text-base">{edu.degree}</h3>
-              <span class="text-xs" style="color: var(--color-text-subtle);">{edu.duration}</span>
-            </div>
-            <p class="text-accent text-xs mt-0.5">{edu.institution}</p>
-            {edu.grade && <p class="text-xs mt-1" style="color: var(--color-text-muted);">Grade: {edu.grade}</p>}
-            {edu.details && (
-              <ul class="list-disc list-outside ml-5 text-xs mt-2 space-y-0.5" style="color: var(--color-text-muted);">
-                {edu.details.map((d) => <li>{d}</li>)}
-              </ul>
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
+    <div class="stack">
+      {experiences.map((exp) => (
+        <article class="cv-entry">
+          <h2>{exp.role}</h2>
+          <p class="entry-meta">
+            {exp.companyLink ? <a href={exp.companyLink} target="_blank" rel="noopener">{exp.company}</a> : exp.company}
+            {' · '}{exp.type}{' · '}{exp.duration}{exp.location && ` · ${exp.location}`}
+            {exp.supervisor && <> · Supervisor: {exp.supervisorLink ? <a href={exp.supervisorLink} target="_blank" rel="noopener">{exp.supervisor}</a> : exp.supervisor}</>}
+          </p>
+          <ul class="plain-list">
+            {exp.bullets.map((bullet) => <li>{bullet}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
 
-    <!-- Experience -->
-    <section class="mb-12">
-      <h2 class="section-heading">Experience</h2>
-      <div class="space-y-8">
-        {experiences.map((exp) => (
-          <div class="cv-entry">
-            <div class="flex justify-between flex-wrap gap-2 items-baseline">
-              <div>
-                <h3 class="font-light text-base">{exp.role}</h3>
-                <p class="text-accent text-xs mt-0.5">
-                  {exp.company} <span style="color: var(--color-text-subtle);">· {exp.type}</span>
-                </p>
-              </div>
-              <div class="text-xs text-right" style="color: var(--color-text-subtle);">
-                <p>{exp.duration}</p>
-                {exp.location && <p class="text-[0.7rem] mt-0.5">{exp.location}</p>}
-              </div>
-            </div>
-            <ul class="list-disc list-outside ml-5 text-xs mt-2 space-y-1" style="color: var(--color-text-muted);">
-              {exp.bullets.map((b) => <li>{b}</li>)}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </section>
   </div>
 </Layout>

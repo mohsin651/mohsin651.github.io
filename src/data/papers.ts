@@ -15,9 +15,10 @@ export const papers: Paper[] = [
   {
     title: "DAMM: Dynamic Modality Aware Weighted Embeddings Fusion for Multimodal Meme Detection",
     authors: "Mohsin Imam, Utathya Aich, Ram Sarkar",
-    venue: "Information Fusion, Elsevier",
-    year: 2024,
-    status: "Under Review",
+    venue: "Knowledge-Based Systems, Elsevier",
+    year: 2026,
+    status: "Published",
+    link: "https://www.sciencedirect.com/science/article/pii/S095070512600852X",
     selected: true,
   },
   {
@@ -36,7 +37,15 @@ export const papers: Paper[] = [
     venue: "Intelligent Systems with Applications, Elsevier",
     year: 2024,
     status: "Published",
-    link: "https://www.sciencedirect.com/science/article/pii/S2667305324000097",
+    link: "https://www.sciencedirect.com/science/article/pii/S2667305324000097?via%3Dihub#br0110",
+    selected: true,
+  },
+  {
+    title: "Do Vision–Language Models Trust Incorrect Anomaly Regions? A Counterfactual Reliability Study for Industrial Inspection",
+    authors: "Mohsin Imam, Aymen Bennabi, Eduardo Cermeño",
+    venue: "ACM AI Letters",
+    year: 2026,
+    status: "Under Review",
     selected: true,
   },
   {

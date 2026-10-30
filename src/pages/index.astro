@@ -1,178 +1,77 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SocialLinks from '../components/SocialLinks.astro';
-import { papers } from '../data/papers';
-
-const selectedPapers = papers.filter((p) => p.selected);
+import { site } from '../data/site';
 ---
 
 <Layout title="about">
-  <div class="container-page py-12">
-    <!-- Header section: Name + Bio with image floated right -->
-    <div class="mb-12">
-      <h1 class="heading-page">Mohsin Imam</h1>
-      <p class="subtitle-page">
-        Erasmus Mundus Scholar | IPCVai (UAM-Pázmány) | AI &amp; Computer Vision Researcher
-      </p>
-
-      <!-- Floated image on the right -->
-      <div class="float-right ml-8 mb-6">
-        <div class="flip-card w-48 h-48">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <picture>
-                <source
-                  type="image/avif"
-                  srcset="/img/prof_pic-192.avif 192w, /img/prof_pic-384.avif 384w"
-                  sizes="192px"
-                />
-                <source
-                  type="image/webp"
-                  srcset="/img/prof_pic-192.webp 192w, /img/prof_pic-384.webp 384w"
-                  sizes="192px"
-                />
-                <img
-                  src="/img/prof_pic.png"
-                  alt="Mohsin Imam"
-                  width="192"
-                  height="192"
-                  decoding="async"
-                  fetchpriority="high"
-                  class="w-full h-full rounded-2xl object-cover shadow-lg border-4"
-                  style="border-color: var(--color-accent)"
-                />
-              </picture>
-            </div>
-            <div class="flip-card-back">
-              <picture>
-                <source
-                  type="image/avif"
-                  srcset="/img/ai_cat-192.avif 192w, /img/ai_cat-384.avif 384w"
-                  sizes="192px"
-                />
-                <source
-                  type="image/webp"
-                  srcset="/img/ai_cat-192.webp 192w, /img/ai_cat-384.webp 384w"
-                  sizes="192px"
-                />
-                <img
-                  src="/img/ai_cat.png"
-                  alt="AI Cat"
-                  width="192"
-                  height="192"
-                  loading="lazy"
-                  decoding="async"
-                  class="w-full h-full rounded-2xl object-cover shadow-lg border-4"
-                  style="border-color: var(--color-accent)"
-                />
-              </picture>
-            </div>
-          </div>
-        </div>
-        <div class="mt-4 text-xs text-gray-600 dark:text-gray-400 space-y-1 text-center">
-          <p>📍 Madrid, Spain | Delhi, India</p>
+  <div class="container-page page-content">
+    <p class="site-notice" role="status">Website under development — some content may not be up to date.</p>
+    <section class="about-layout">
+      <div class="about-entity">
+        <picture>
+          <source type="image/avif" srcset="/img/prof_pic-192.avif 192w, /img/prof_pic-384.avif 384w" sizes="16em" />
+          <source type="image/webp" srcset="/img/prof_pic-192.webp 192w, /img/prof_pic-384.webp 384w" sizes="16em" />
+          <img src="/img/prof_pic.png" alt="Mohsin Imam" width="384" height="384" class="about-image" fetchpriority="high" />
+        </picture>
+        <div class="about-links">
+          <a href={`mailto:${site.email}`} class="about-link" aria-label="Email Mohsin Imam">
+            <svg class="about-link-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6.75A2.25 2.25 0 0 1 5.25 4.5h13.5A2.25 2.25 0 0 1 21 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 17.25V6.75Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m3.5 6 7.2 5.4a2.2 2.2 0 0 0 2.6 0L20.5 6"/></svg>
+            <span>email</span>
+          </a>
+          <a href="https://www.linkedin.com/in/mohsin-imam" target="_blank" rel="noopener" class="about-link" aria-label="LinkedIn profile">
+            <svg class="about-link-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M4.7 3.4a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6ZM3.2 8.5h3v9.7h-3V8.5Zm5 0h2.9v1.3h.1c.4-.8 1.4-1.7 2.9-1.7 3.1 0 3.7 2 3.7 4.6v5.5h-3v-4.9c0-1.2 0-2.8-1.7-2.8s-1.9 1.3-1.9 2.7v5h-3V8.5Z"/></svg>
+            <span>linkedin</span>
+          </a>
+          <a href="https://github.com/mohsin651" target="_blank" rel="noopener" class="about-link" aria-label="GitHub profile">
+            <svg class="about-link-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 0 0-3.1 19.1c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.5 1.1 3.1.8.1-.7.4-1.1.7-1.4-2.2-.3-4.5-1.1-4.5-4.8 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.7 9.7 0 0 1 5.1 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.7-2.3 4.5-4.5 4.8.4.3.7 1 .7 2v2.9c0 .3.2.6.7.5A9.8 9.8 0 0 0 12 2.2Z"/></svg>
+            <span>github</span>
+          </a>
+          <a href="https://www.researchgate.net/profile/Mohsin-Imam-2" target="_blank" rel="noopener" class="about-link" aria-label="ResearchGate profile">
+            <span class="about-link-text-icon" aria-hidden="true">RG</span><span>researchgate</span>
+          </a>
         </div>
       </div>
 
-      <div class="prose dark:prose-invert max-w-none">
-        <p class="text-base leading-relaxed mb-4">
-          I'm an AI researcher and software engineer passionate about advancing AI through
-          cutting-edge research and real-world applications. Currently pursuing a Master's in
-          Computer Vision at the Erasmus Mundus
-          <strong>IPCVai</strong> program (UAM, Spain &amp; Pázmány, Hungary), with specialization in
-          <strong>Multimodal Deep Learning</strong>, <strong>Generative AI</strong>, and
-          <strong>Computer Vision</strong>.
+      <div class="about-copy site-prose">
+        <h1 class="about-title">Mohsin Imam</h1>
+        <p>
+          I am currently pursuing a Master's in Computer Vision through the Erasmus Mundus
+          <strong>IPCVai</strong> programme at <a href="https://www.uam.es/" target="_blank" rel="noopener">Universidad Autónoma de Madrid</a>, <a href="https://ppke.hu/" target="_blank" rel="noopener">Pázmány Péter Catholic University</a>, and <a href="https://www.u-bordeaux.com/" target="_blank" rel="noopener">Université de Bordeaux</a>. Previously, I worked on RAG systems, natural-language interfaces, and multimodal AI for research and industry projects.
         </p>
-
-        <h3 class="text-lg font-light mt-6 mb-2">Research Interests</h3>
-        <ul class="list-disc list-inside space-y-1 mb-4">
-          <li>Multimodal AI &amp; Meme Detection</li>
-          <li>Large Language Models &amp; Prompt Security</li>
-          <li>Retrieval-Augmented Generation (RAG) Systems</li>
-          <li>Blockchain &amp; Decentralized Applications</li>
-          <li>AI for Healthcare &amp; Social Impact</li>
-        </ul>
-
-        <h3 class="text-lg font-light mt-6 mb-2">Recent Work</h3>
-        <ul class="list-disc list-inside space-y-1 mb-4">
-          <li>
-            <strong>GenAI Developer</strong> at Vionix Biosciences: Built RAG pipelines for
-            scientific Q&amp;A and NL2SQL systems
-          </li>
-          <li>
-            <strong>Research Assistant</strong> at Jadavpur University: Developed multimodal AI
-            solutions for hateful content detection
-          </li>
-          <li>
-            <strong>15+ peer-reviewed publications</strong> in top-tier venues including
-            Elsevier, Springer, and IEEE
-          </li>
-        </ul>
-
-        <div class="mt-6 callout-accent">
-          <p>
-            I'm currently seeking <strong>Summer 2026 internships</strong> in AI/ML research and
-            development. Feel free to reach out for collaboration opportunities!
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- News Section -->
-    <section class="mb-12">
-      <h2 class="text-2xl font-light mb-6">News</h2>
-      <div class="news-scroll space-y-3 max-h-72 overflow-y-auto pr-3">
-        <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
-          <span class="text-xs text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Apr 2025</span>
-          <p>Started role as <strong>GenAI Developer</strong> at Vionix Biosciences building RAG pipelines for scientific Q&amp;A.</p>
-        </div>
-        <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
-          <span class="text-xs text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Sep 2025</span>
-          <p>Began Master's in Computer Vision at <strong>Pázmány Péter Catholic University</strong> as part of Erasmus Mundus IPCVai.</p>
-        </div>
-        <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
-          <span class="text-xs text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Oct 2024</span>
-          <p>Joined <strong>Jadavpur University</strong> as Research Assistant working on multimodal AI for hate speech detection.</p>
-        </div>
-        <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
-          <span class="text-xs text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Jul 2024</span>
-          <p>Started contract as <strong>Data Scientist</strong> contributing to GenAI + RAG projects.</p>
-        </div>
-        <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
-          <span class="text-xs text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Jun 2023</span>
-          <p>Joined <strong>DRDO</strong> as NLP Intern working on Speech Processing Models.</p>
-        </div>
-        <div class="flex flex-col md:flex-row md:gap-6 border-b border-gray-200 dark:border-gray-800 pb-3">
-          <span class="text-xs text-gray-500 dark:text-gray-400 md:w-32 flex-shrink-0">Jun 2023</span>
-          <p>Graduated with <strong>B.Sc. (H) Computer Science</strong> from Delhi University.</p>
-        </div>
+        <p>
+          Find my <a href="/projects">projects</a>, <a href="/publications">publications</a>, and
+          <a href="/pdf/cv_mohsin.pdf" target="_blank" rel="noopener">resume</a> here.
+        </p>
       </div>
     </section>
 
-    <!-- Selected Publications -->
-    <section>
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-light">Selected Publications</h2>
-        <a href="/publications" class="text-xs">view all →</a>
+    <section class="section-block">
+      <h2>Updates</h2>
+      <div class="updates-box">
+        <ul class="updates-list">
+          <li><strong>Jun–Aug 2026:</strong> Completed a Computer Vision Internship at <a href="https://vaelsys.com/" target="_blank" rel="noopener">Vaelsys</a>, building edge video threat-detection systems for the Vaelsys–Intel proof of concept.</li>
+          <li><strong>Apr 2025:</strong> Started as a GenAI Developer at <a href="https://www.vionix.bio/" target="_blank" rel="noopener">Vionix Biosciences</a>, building RAG pipelines for scientific Q&amp;A.</li>
+          <li><strong>Sep 2025:</strong> Began the Erasmus Mundus IPCVai Master's in Computer Vision.</li>
+          <li><strong>Oct 2024:</strong> Joined Jadavpur University as a Research Assistant working on multimodal AI for hateful-content detection.</li>
+          <li><strong>Jun 2023:</strong> Graduated with a B.Sc. (H) in Computer Science from Delhi University.</li>
+        </ul>
       </div>
-      <div class="space-y-6">
-        {selectedPapers.map((paper) => (
-          <article class="border-l-2 border-accent pl-4">
-            <h3 class="font-light text-base leading-snug">
-              {paper.link ? (
-                <a href={paper.link} target="_blank" rel="noopener" class="hover:underline">{paper.title}</a>
-              ) : paper.title}
-            </h3>
-            <p class="text-xs text-gray-700 dark:text-gray-300 mt-1">{paper.authors}</p>
-            <p class="text-xs text-gray-600 dark:text-gray-400 italic mt-1">
-              {paper.venue}, {paper.year}
-              {paper.status && paper.status !== 'Published' && (
-                <span class="ml-2 px-2 py-0.5 text-[0.7rem] rounded bg-gray-200 dark:bg-gray-700">{paper.status}</span>
-              )}
-            </p>
-          </article>
-        ))}
-      </div>
+    </section>
+
+    <section class="section-block site-prose">
+      <h2>Education</h2>
+      <p>
+        <a href="https://www.uam.es/" target="_blank" rel="noopener"><strong>Universidad Autónoma de Madrid</strong></a> · 2026<br />
+        <em>Master's in Computer Vision, Erasmus Mundus IPCVai</em>
+      </p>
+      <p>
+        <a href="https://ppke.hu/" target="_blank" rel="noopener"><strong>Pázmány Péter Catholic University</strong></a> · 2025–2026<br />
+        <em>Master's in Computer Vision, Erasmus Mundus IPCVai</em>
+      </p>
+      <p>
+        <a href="https://arsdcollege.ac.in/" target="_blank" rel="noopener"><strong>Atma Ram Sanatan Dharma College, Delhi University</strong></a> · 2020–2023<br />
+        <em>B.Sc. (H) Computer Science</em>
+      </p>
     </section>
   </div>
 </Layout>

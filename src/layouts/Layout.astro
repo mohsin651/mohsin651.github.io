@@ -26,7 +26,7 @@ const fontFamily = (font: { family?: string; name?: string; fallback?: string })
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/img/prof_pic.png" />
     <meta name="generator" content={Astro.generator} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,10 +44,10 @@ const fontFamily = (font: { family?: string; name?: string; fallback?: string })
 
     <title>{fullTitle}</title>
 
-    <!-- Theme initialization (dark-only UI; toggle code is kept in Navbar for future use) -->
     <script is:inline>
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.toggle('dark', localStorage.getItem('theme') === 'dark');
     </script>
+
   </head>
   <body class="min-h-screen flex flex-col">
     <Navbar />
