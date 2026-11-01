@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { existsSync } from 'node:fs';
 import { papers } from '../data/papers';
 
 function topicsFor(p: typeof papers[number]): string[] {
@@ -23,34 +25,37 @@ const papersByYear = sorted.reduce((acc, paper) => {
 const years = Object.keys(papersByYear).map(Number).sort((a, b) => b - a);
 ---
 
-<Layout title="publications" description="Research publications by Mohsin Imam">
+<Layout title="Publications" description="Research publications by Mohsin Imam">
   <div class="container-page page-content">
-    <h1 class="page-heading">Publications</h1>
+    <PageHeader title="Publications" eyebrow="Research" description="Papers, preprints, and ongoing work, organized by year and research topic." />
 
-    <div class="filter-row" id="topic-filter" aria-label="Filter publications by topic">
-      <button type="button" class="filter-button active" data-topic="all">all</button>
-      {allTopics.map((topic) => <button type="button" class="filter-button" data-topic={topic}>{topic.toLowerCase()}</button>)}
+    <div class="filter-bar">
+      <div class="filter-row" id="topic-filter" role="group" aria-label="Filter publications by topic">
+        <button type="button" class="filter-button active" data-topic="all" aria-pressed="true">All topics</button>
+        {allTopics.map((topic) => <button type="button" class="filter-button" data-topic={topic} aria-pressed="false">{topic}</button>)}
+      </div>
+      <p id="publication-count" class="result-count" role="status">{papers.length} publications</p>
     </div>
 
     {years.map((year) => (
-      <section class="section-block year-section" data-year={year}>
-        <h2 class="section-rule">{year}</h2>
-        <div class="stack">
+      <section class="year-section" data-year={year} aria-labelledby={`year-${year}`}>
+        <h2 class="year-heading" id={`year-${year}`}>{year}</h2>
+        <div>
           {papersByYear[year].map((paper) => {
-            const id = `abstract-${paper.title.replace(/[^a-zA-Z0-9]/g, '-').slice(0, 40)}`;
+            const availablePdf = paper.pdf && (!paper.pdf.startsWith('/') || existsSync(new URL(`../../public${paper.pdf}`, import.meta.url)));
             return (
               <article class="paper-entry" data-topics={paper._topics.join(',')}>
-                <h2>
+                <h3 class="entry-title">
                   {paper.link ? <a href={paper.link} target="_blank" rel="noopener">{paper.title}</a> : paper.title}
-                </h2>
+                </h3>
                 <p class="entry-meta">{paper.authors}</p>
-                <p class="entry-meta"><em>{paper.venue}</em>{paper.status && paper.status !== 'Published' && ` · ${paper.status}`}</p>
-                <div class="tag-list">
-                  {paper.link && <a href={paper.link} target="_blank" rel="noopener">read paper</a>}
-                  {paper.pdf && <a href={paper.pdf} target="_blank" rel="noopener">pdf</a>}
-                  {paper.abstract && <button type="button" class="filter-button abstract-toggle" data-target={id}>abstract</button>}
-                </div>
-                {paper.abstract && <div id={id} class="abstract" hidden>{paper.abstract}</div>}
+                <p class="entry-meta">{paper.venue}</p>
+                {paper.status && paper.status !== 'Published' && <div class="paper-status"><span class="tag">{paper.status}</span></div>}
+                {(paper.link || availablePdf) && <div class="paper-actions">
+                  {paper.link && <a class="text-link" href={paper.link} target="_blank" rel="noopener">Read paper <span aria-hidden="true">↗</span></a>}
+                  {availablePdf && <a class="text-link" href={paper.pdf} target="_blank" rel="noopener">PDF <span aria-hidden="true">↗</span></a>}
+                </div>}
+                {paper.abstract && <details class="abstract-details"><summary>Abstract</summary><div class="abstract">{paper.abstract}</div></details>}
               </article>
             );
           })}
@@ -61,28 +66,24 @@ const years = Object.keys(papersByYear).map(Number).sort((a, b) => b - a);
 </Layout>
 
 <script>
-  document.querySelectorAll<HTMLButtonElement>('.abstract-toggle').forEach((button) => {
-    button.addEventListener('click', () => {
-      const target = button.dataset.target;
-      if (target) {
-        const abstract = document.getElementById(target);
-        if (abstract) abstract.hidden = !abstract.hidden;
-      }
-    });
-  });
-
   const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-button[data-topic]');
   const entries = document.querySelectorAll<HTMLElement>('.paper-entry');
   const sections = document.querySelectorAll<HTMLElement>('.year-section');
   buttons.forEach((button) => button.addEventListener('click', () => {
     const topic = button.dataset.topic;
-    buttons.forEach((item) => item.classList.toggle('active', item === button));
+    buttons.forEach((item) => {
+      item.classList.toggle('active', item === button);
+      item.setAttribute('aria-pressed', String(item === button));
+    });
     entries.forEach((entry) => {
       const topics = (entry.dataset.topics || '').split(',');
-      entry.style.display = topic === 'all' || topics.includes(topic || '') ? '' : 'none';
+      entry.hidden = !(topic === 'all' || topics.includes(topic || ''));
     });
     sections.forEach((section) => {
-      section.style.display = Array.from(section.querySelectorAll<HTMLElement>('.paper-entry')).some((entry) => entry.style.display !== 'none') ? '' : 'none';
+      section.hidden = !Array.from(section.querySelectorAll<HTMLElement>('.paper-entry')).some((entry) => !entry.hidden);
     });
+    const count = Array.from(entries).filter((entry) => !entry.hidden).length;
+    const countLabel = document.getElementById('publication-count');
+    if (countLabel) countLabel.textContent = `${count} publication${count === 1 ? '' : 's'}${topic !== 'all' ? ` · ${topic}` : ''}`;
   }));
 </script>

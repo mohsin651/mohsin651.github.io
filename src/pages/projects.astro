@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
 
 const projects = [
   { title: 'QueriSight — Multimodal Video Retrieval', description: 'Designing a multimodal video retrieval pipeline that transforms videos into searchable, timestamped segments using scene-aware segmentation, keyframe extraction, SigLIP visual embeddings, and Qwen-generated descriptions.', tags: ['Video Retrieval', 'SigLIP', 'Qwen', 'FastAPI', 'Milvus'], link: '#', context: 'IPCV final project · Sep 2026 – Present · Supervisor: Fabien Baldacci', supervisorLink: 'https://www.labri.fr/en/profil/Baldacci_ID1346658490' },
@@ -9,21 +10,24 @@ const projects = [
 ];
 ---
 
-<Layout title="projects" description="Selected projects by Mohsin Imam">
+<Layout title="Projects" description="Selected projects by Mohsin Imam">
   <div class="container-page page-content">
-    <h1 class="page-heading">Projects</h1>
-    <p class="page-lede">Selected research and engineering work.</p>
+    <PageHeader title="Projects" eyebrow="Selected work" description="Research and engineering across computer vision, multimodal learning, and applied AI." />
 
-    <div class="stack">
-      {projects.map((project) => (
+    <div class="project-grid">
+      {projects.map((project, index) => (
         <article class="project-entry">
-          <h2>
+          <div class="project-topline"><span class="project-number">{String(index + 1).padStart(2, '0')}</span><span>{project.tags[0]}</span></div>
+          <h2 class="entry-title">
             {project.link === '#' ? project.title : <a href={project.link} target="_blank" rel="noopener">{project.title}</a>}
           </h2>
-          {project.context && <p class="entry-meta">{project.context}{'supervisorLink' in project && project.supervisorLink && <> · <a href={project.supervisorLink} target="_blank" rel="noopener">supervisor profile</a></>}</p>}
-          <p>{project.description}</p>
+          <p class="project-description">{project.description}</p>
           <div class="tag-list">
             {project.tags.map((tag) => <span class="tag">{tag}</span>)}
+          </div>
+          <div class="project-context">
+            <p>{project.context}</p>
+            {'supervisorLink' in project && project.supervisorLink && <a href={project.supervisorLink} target="_blank" rel="noopener">Supervisor profile ↗</a>}
           </div>
         </article>
       ))}

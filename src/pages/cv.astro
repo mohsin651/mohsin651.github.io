@@ -1,30 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
 import { experiences } from '../data/experience';
 ---
 
-<Layout title="experience" description="Experience and education of Mohsin Imam">
+<Layout title="Experience" description="Research and engineering experience of Mohsin Imam">
   <div class="container-page page-content">
-    <div class="flex justify-between items-start gap-4 flex-wrap mb-8">
-      <div>
-        <h1 class="page-heading">Experience</h1>
-        <p class="page-lede">Research, engineering, and applied machine learning.</p>
-      </div>
-      <a href="/pdf/cv_mohsin.pdf" target="_blank" rel="noopener" class="action-link">View resume</a>
-    </div>
+    <PageHeader title="Experience" eyebrow="Professional journey" description="Research, engineering, and applied machine learning.">
+      <a slot="action" href="/pdf/cv_mohsin.pdf" target="_blank" rel="noopener" class="action-link secondary">View resume <span aria-hidden="true">↗</span></a>
+    </PageHeader>
 
-    <div class="stack">
+    <div class="experience-list">
       {experiences.map((exp) => (
         <article class="cv-entry">
+          <div class="experience-aside"><p class="entry-date">{exp.duration}</p><span class="tag">{exp.type}</span></div>
+          <div>
           <h2>{exp.role}</h2>
-          <p class="entry-meta">
+          <p class="company-line">
             {exp.companyLink ? <a href={exp.companyLink} target="_blank" rel="noopener">{exp.company}</a> : exp.company}
-            {' · '}{exp.type}{' · '}{exp.duration}{exp.location && ` · ${exp.location}`}
-            {exp.supervisor && <> · Supervisor: {exp.supervisorLink ? <a href={exp.supervisorLink} target="_blank" rel="noopener">{exp.supervisor}</a> : exp.supervisor}</>}
           </p>
+          {exp.location && <p class="entry-meta">{exp.location}</p>}
+          {exp.supervisor && <p class="entry-meta">Supervisor: {exp.supervisorLink ? <a href={exp.supervisorLink} target="_blank" rel="noopener">{exp.supervisor}</a> : exp.supervisor}</p>}
           <ul class="plain-list">
             {exp.bullets.map((bullet) => <li>{bullet}</li>)}
           </ul>
+          </div>
         </article>
       ))}
     </div>

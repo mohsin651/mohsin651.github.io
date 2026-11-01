@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  eyebrow?: string;
+}
+const { title, description, eyebrow } = Astro.props;
+---
+
+<header class="page-header">
+  <div>
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1 class="page-heading">{title}</h1>
+    <p class="page-lede">{description}</p>
+  </div>
+  {Astro.slots.has('action') && <div class="page-header-action"><slot name="action" /></div>}
+</header>

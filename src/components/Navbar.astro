@@ -6,7 +6,7 @@ const currentPath = Astro.url.pathname;
 
 <header class="site-header">
   <nav class="site-nav" aria-label="Primary navigation">
-    <div class="nav-inner">
+    <div class="container-page nav-inner">
       <a href="/" class="brand">{site.author}</a>
 
       <button id="mobile-menu-btn" class="menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation">
@@ -21,10 +21,11 @@ const currentPath = Astro.url.pathname;
             <a
               href={item.href}
               class:list={["nav-link", { active: isActive }]}
+              aria-current={isActive ? 'page' : undefined}
               target={isExternal ? '_blank' : undefined}
               rel={isExternal ? 'noopener' : undefined}
             >
-              {item.name}
+              {item.name}{isExternal && <span class="external-arrow" aria-hidden="true">↗</span>}
             </a>
           );
         })}
@@ -44,6 +45,13 @@ const currentPath = Astro.url.pathname;
     const open = menu?.classList.toggle('open') ?? false;
     button.setAttribute('aria-expanded', String(open));
   });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu?.classList.contains('open')) {
+      menu.classList.remove('open');
+      button?.setAttribute('aria-expanded', 'false');
+      button?.focus();
+    }
+  });
 
   const themeToggle = document.getElementById('theme-toggle');
   const themeIcon = document.getElementById('theme-toggle-icon');
@@ -57,33 +65,39 @@ const currentPath = Astro.url.pathname;
   updateThemeControl();
   themeToggle?.addEventListener('click', () => {
     const isDark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch {}
     updateThemeControl();
   });
 </script>
 
 <style>
-  .site-header { background: var(--color-primary); }
+  .site-header { border-bottom: 1px solid var(--color-border); background: var(--color-bg); }
   .site-nav { min-height: 58px; }
-  .nav-inner { max-width: 1140px; min-height: 58px; margin: 0 auto; padding: 0 0.75rem; display: flex; align-items: center; gap: 2rem; }
-  .brand { margin-right: auto; color: #fff; font-size: 1.1rem; font-weight: 700; text-decoration: none; }
-  .brand:hover { color: #fff; }
+  .nav-inner { min-height: 58px; display: flex; align-items: center; gap: 2rem; }
+  .brand { margin-right: auto; color: var(--color-text); font-size: 1.1rem; font-weight: 700; text-decoration: none; }
+  .brand:hover { color: var(--color-accent); }
   .nav-links { display: flex; align-items: center; gap: 1.25rem; }
-  .nav-link { padding: 1rem 0; color: rgba(255, 255, 255, 0.8); font-size: 0.95rem; text-decoration: none; }
-  .nav-link:hover, .nav-link.active { color: #fff; }
-  .nav-link.active { border-bottom: 2px solid var(--color-accent); }
-  .theme-toggle { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.55rem; border: 1px solid rgba(255,255,255,0.45); border-radius: 0.25rem; background: transparent; color: rgba(255,255,255,0.85); font: inherit; font-size: 0.8rem; cursor: pointer; }
-  .theme-toggle:hover { border-color: #fff; color: #fff; }
-  .menu-button { display: none; padding: 0.4rem; border: 1px solid rgba(255,255,255,0.35); border-radius: 0.25rem; background: transparent; }
-  .menu-button span { display: block; width: 1.2rem; height: 2px; margin: 3px; background: #fff; }
+  .nav-link { display: inline-flex; align-items: center; gap: .25rem; min-height: 44px; position: relative; color: var(--color-text-muted); font-size: .86rem; text-decoration: none; }
+  .nav-link:hover, .nav-link.active { color: var(--color-accent); }
+  .nav-link.active::after { content: ''; position: absolute; bottom: 1px; left: 0; right: 0; height: 2px; background: var(--color-accent); }
+  .external-arrow { font-size: .8rem; }
+  .theme-toggle { display: inline-flex; justify-content: center; align-items: center; gap: .4rem; min-height: 44px; min-width: 44px; padding: .4rem .65rem; border: 1px solid var(--color-border); border-radius: var(--radius); background: var(--color-surface); color: var(--color-text-muted); font: inherit; font-size: .76rem; cursor: pointer; }
+  #theme-toggle-icon { font-size: 1.1rem; line-height: 1; }
+  #theme-toggle-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .theme-toggle:hover { border-color: var(--color-accent); color: var(--color-accent); background: var(--color-surface-soft); }
+  .menu-button { display: none; width: 44px; height: 44px; padding: .5rem; border: 1px solid var(--color-border); border-radius: var(--radius); background: var(--color-surface); cursor: pointer; }
+  .menu-button:hover { border-color: var(--color-accent); background: var(--color-surface-soft); }
+  .menu-button span { display: block; width: 1.2rem; height: 2px; margin: 4px auto; background: var(--color-text); }
 
-  @media (max-width: 767px) {
-    .nav-inner { flex-wrap: wrap; padding: 0 1rem; }
+  @media (max-width: 900px) {
+    .nav-inner { flex-wrap: wrap; gap: 0; min-height: 58px; }
     .menu-button { display: block; }
-    .nav-links { display: none; flex-basis: 100%; flex-direction: column; align-items: flex-start; gap: 0; padding-bottom: 0.75rem; }
+    .nav-links { display: none; flex-basis: 100%; flex-direction: column; align-items: stretch; gap: .25rem; padding: .5rem 0 1rem; border-top: 1px solid var(--color-border); }
     .nav-links.open { display: flex; }
-    .nav-link { width: 100%; padding: 0.55rem 0; }
-    .nav-link.active { border-bottom: 0; }
-    .theme-toggle { margin-top: 0.35rem; }
+    .nav-link { width: 100%; padding: .55rem .75rem; border-radius: var(--radius); }
+    .nav-link.active { background: var(--color-surface-soft); }
+    .nav-link.active::after { display: none; }
+    .theme-toggle { align-self: flex-start; margin-top: .5rem; }
+    #theme-toggle-label { position: static; width: auto; height: auto; clip-path: none; }
   }
 </style>

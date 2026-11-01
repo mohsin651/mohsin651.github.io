@@ -1,25 +1,28 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/PageHeader.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title="blog" description="Research notes and articles by Mohsin Imam">
+<Layout title="Blog" description="Research notes and articles by Mohsin Imam">
   <div class="container-page page-content">
-    <h1 class="page-heading">Blog</h1>
-    <p class="page-lede">Research notes, paper reviews, and technical writing.</p>
+    <PageHeader title="Blog" eyebrow="Notes & ideas" description="Research notes, paper reviews, and technical writing." />
 
     {posts.length === 0 ? (
-      <p class="muted">No posts yet. Check back soon.</p>
+      <p class="empty-state">No posts yet. Check back soon.</p>
     ) : (
-      <div class="stack">
+      <div>
         {posts.map((post) => (
           <article class="blog-entry">
-            <h2><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
-            <p class="entry-meta">{post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-            <p>{post.data.description}</p>
+            <time class="entry-date" datetime={post.data.date.toISOString()}>{post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time>
+            <div>
+            <h2 class="entry-title"><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
+            <p class="blog-description">{post.data.description}</p>
             {post.data.tags && <div class="tag-list">{post.data.tags.map((tag) => <span class="tag">{tag}</span>)}</div>}
+            <a class="text-link" href={`/blog/${post.slug}`} aria-label={`Read ${post.data.title}`}>Read article <span aria-hidden="true">→</span></a>
+            </div>
           </article>
         ))}
       </div>
