@@ -34,7 +34,7 @@ const years = Object.keys(papersByYear).map(Number).sort((a, b) => b - a);
         <button type="button" class="filter-button active" data-topic="all" aria-pressed="true">All topics</button>
         {allTopics.map((topic) => <button type="button" class="filter-button" data-topic={topic} aria-pressed="false">{topic}</button>)}
       </div>
-      <p id="publication-count" class="result-count" role="status">{papers.length} publications</p>
+      <p id="publication-status" class="result-count" role="status">All publications</p>
     </div>
 
     {years.map((year) => (
@@ -82,8 +82,7 @@ const years = Object.keys(papersByYear).map(Number).sort((a, b) => b - a);
     sections.forEach((section) => {
       section.hidden = !Array.from(section.querySelectorAll<HTMLElement>('.paper-entry')).some((entry) => !entry.hidden);
     });
-    const count = Array.from(entries).filter((entry) => !entry.hidden).length;
-    const countLabel = document.getElementById('publication-count');
-    if (countLabel) countLabel.textContent = `${count} publication${count === 1 ? '' : 's'}${topic !== 'all' ? ` · ${topic}` : ''}`;
+    const statusLabel = document.getElementById('publication-status');
+    if (statusLabel) statusLabel.textContent = topic === 'all' ? 'All publications' : `${topic} publications`;
   }));
 </script>

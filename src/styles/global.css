@@ -5,42 +5,47 @@
 @layer base {
   :root {
     color-scheme: light;
-    --color-bg: #fafbf9;
-    --color-surface: #ffffff;
-    --color-surface-soft: #edf3f0;
-    --color-text: #25332f;
-    --color-text-muted: #52635c;
-    --color-text-subtle: #5d6d64;
-    --color-border: #dce5df;
-    --color-primary: #286455;
+    --color-bg: #f7f4ee;
+    --color-surface: #fbf8f2;
+    --color-surface-soft: #eeeae2;
+    --color-text: #242e40;
+    --color-text-muted: #4e596a;
+    --color-text-subtle: #596476;
+    --color-border: #d8d2c7;
+    --color-primary: #204da5;
     --color-on-primary: #ffffff;
-    --color-accent: #286455;
-    --color-accent-hover: #1c4d40;
-    --color-selection: #d3e7de;
+    --color-accent: #204da5;
+    --color-accent-hover: #12377e;
+    --color-selection: #d0def4;
+    --paper-texture: url('/img/paper-grain.svg');
     --radius: 8px;
     --section-gap: 1.5rem;
   }
 
   html.dark {
     color-scheme: dark;
-    --color-bg: #191f1d;
-    --color-surface: #212a26;
-    --color-surface-soft: #2a3730;
-    --color-text: #e5ede8;
-    --color-text-muted: #b8c7be;
-    --color-text-subtle: #a1b2a7;
-    --color-border: #3b4b41;
-    --color-primary: #9dcbb5;
-    --color-on-primary: #192b22;
-    --color-accent: #9dcbb5;
-    --color-accent-hover: #bfe2d0;
-    --color-selection: #3c5c4e;
+    --color-bg: #181e29;
+    --color-surface: #202938;
+    --color-surface-soft: #29354a;
+    --color-text: #e6ecf5;
+    --color-text-muted: #bbc7d9;
+    --color-text-subtle: #a5b4cb;
+    --color-border: #3b4a61;
+    --color-primary: #a7c8ef;
+    --color-on-primary: #192b43;
+    --color-accent: #a7c8ef;
+    --color-accent-hover: #c7ddf7;
+    --color-selection: #3b5273;
+    --paper-texture: none;
   }
 
   html { scroll-behavior: smooth; scroll-padding-top: 2rem; font-size: 17px; }
   body {
     margin: 0;
     background: var(--color-bg);
+    background-image: var(--paper-texture);
+    background-repeat: repeat;
+    background-size: 192px 192px;
     color: var(--color-text);
     font-family: var(--font-body);
     font-size: 1rem;
@@ -63,7 +68,7 @@
     color: var(--color-accent);
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
-    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+    text-decoration-color: color-mix(in srgb, currentColor 70%, transparent);
     transition: color .15s ease, background-color .15s ease, border-color .15s ease;
   }
   a:hover { color: var(--color-accent-hover); text-decoration-color: currentColor; }
